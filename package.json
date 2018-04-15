@@ -1,0 +1,15 @@
+{
+  "name": "swagger-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-basic-auth": "^1.1.4",
+    "swagger-ui-express": "^3.0.8",
+    "yamljs": "^0.3.0"
+  }
+}
