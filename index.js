@@ -10,7 +10,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', swaggerUi.serve, (req, res, next) => {
-	request.get('https://raw.githubusercontent.com/fhnw-students/wodss-tippspiel-doc/master/swagger.yml', (error, response, body) => {
+	request.get('https://raw.githubusercontent.com/keniseli/evaluation-platform-swagger/master/swagger.yml', (error, response, body) => {
 		if (error) {
 			return res.status(500).send('Could not request swagger.yml.')
 		}
