@@ -156,6 +156,24 @@ paths:
           description: "Invalid input"
         200:
           description: "successful operation"
+  /activity/{id}/activityimage:
+    put:
+      summary: "Uploads an image of an activity"
+      consumes:
+      - multipart/form-data
+      parameters:
+      - in: "path"
+        required: true
+        name: "id"
+        description: "The id of the target activity"
+        type: "string"
+      - in: "formData"
+        name: "upfile"
+        type: "file"
+        description: "The image to upload."
+      responses:
+        200:
+          description: "successful operation"
 definitions:
   ClientEntry:
     type: "object"
