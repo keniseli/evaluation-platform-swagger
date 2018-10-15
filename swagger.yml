@@ -1,0 +1,315 @@
+swagger: "2.0"
+info:
+  description: "Draft api definition for the TEATIME Evaluation platform to get data from the app."
+  version: "1.0.0"
+  title: "Evaluation platform API"
+host: "tbd.com"
+basePath: "/rest"
+schemes:
+- "https"
+- "http"
+paths:
+  /moodactivity:
+    post:
+      summary: "Add a new mood activity"
+      description: ""
+      operationId: "addMoodActivity"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The new mood activity to be saved"
+        required: true
+        schema:
+          $ref: "#/definitions/MoodActivity"
+      responses:
+        400:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+  /reflectionactivity:
+    post:
+      summary: "Add a new reflection activity"
+      description: ""
+      operationId: "addReflectionActivity"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The new reflection activity to be saved"
+        required: true
+        schema:
+          $ref: "#/definitions/ReflectionActivity"
+      responses:
+        400:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+  /problemactivity:
+    post:
+      summary: "Add a new problem activity"
+      description: ""
+      operationId: "addProblemActivity"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The new problem activity to be saved"
+        required: true
+        schema:
+          $ref: "#/definitions/ProblemActivity"
+      responses:
+        400:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+  /taskctivity:
+    post:
+      summary: "Add a new task activity"
+      description: ""
+      operationId: "addTaskActivity"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The new task activity to be saved"
+        required: true
+        schema:
+          $ref: "#/definitions/TaskActivity"
+      responses:
+        400:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+  /avemctivity:
+    post:
+      summary: "Add a new avem activity"
+      description: ""
+      operationId: "addAvemActivity"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The new avem activity to be saved"
+        required: true
+        schema:
+          $ref: "#/definitions/AvemActivity"
+      responses:
+        400:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+  /cbictivity:
+    post:
+      summary: "Add a new cbi activity"
+      description: ""
+      operationId: "addCbiActivity"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The new cbi activity to be saved"
+        required: true
+        schema:
+          $ref: "#/definitions/CbiActivity"
+      responses:
+        400:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+  /cliententry:
+    post:
+      summary: "Add a new client entry"
+      description: ""
+      operationId: "addClientEntry"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "The new client entry to be saved"
+        required: true
+        schema:
+          $ref: "#/definitions/ClientEntry"
+      responses:
+        400:
+          description: "Invalid input"
+        200:
+          description: "successful operation"
+definitions:
+  ClientEntry:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "uuid"
+      goal:
+        type: "number"
+        format: "int"
+        minimum: 0
+      score:
+        type: "number"
+        format: "int"
+        minimum: 0
+      date:
+        type: "string"
+        format: "yyyy-MM-dd’T’HH:mm:ss"
+  MoodActivity:
+    type: "object"
+    properties:
+      clientid:
+        type: "string"
+        format: "uuid"
+      feeling:
+        type: "number"
+        format: "double"
+        minimum: 0
+        maximum: 1
+      name:
+        type: "string"
+      happy:
+        type: "boolean"
+      energized:
+        type: "boolean"
+      date:
+        type: "string"
+        format: "yyyy-MM-dd’T’HH:mm:ss"
+      comment:
+        type: "string"
+      category:
+        type: "string"
+  ReflectionActivity:
+    type: "object"
+    properties:
+      clientid:
+        type: "string"
+        format: "uuid"
+      guiding:
+        $ref: "#/definitions/Question"
+      reflection:
+        $ref: "#/definitions/Question"
+      date:
+        type: "string"
+        format: "yyyy-MM-dd’T’HH:mm:ss"
+      comment:
+        type: "string"
+      category:
+        type: "string"
+  ProblemActivity:
+    type: "object"
+    properties:
+      clientid:
+        type: "string"
+        format: "uuid"
+      date:
+        type: "string"
+        format: "yyyy-MM-dd’T’HH:mm:ss"
+      comment:
+        type: "string"
+      category:
+        type: "string"
+      problemScore:
+        type: "number"
+        format: "double"
+        minimum: 0
+        maximum: 1
+      changeScore:
+        type: "number"
+        format: "int"
+        minimum: 1
+        maximum: 4
+  TaskActivity:
+    type: "object"
+    properties:
+      clientid:
+        type: "string"
+        format: "uuid"
+      date:
+        type: "string"
+        format: "yyyy-MM-dd’T’HH:mm:ss"
+      comment:
+        type: "string"
+      category:
+        type: "string"
+      task:
+        $ref: "#/definitions/Task"
+  AvemActivity:
+    type: "object"
+    properties:
+      clientid:
+        type: "string"
+        format: "uuid"
+      questions:
+        type: "array"
+        items:
+          $ref: "#/definitions/Question"
+      date:
+        type: "string"
+        format: "yyyy-MM-dd’T’HH:mm:ss"
+  CbiActivity:
+    type: "object"
+    properties:
+      clientid:
+        type: "string"
+        format: "uuid"
+      questions:
+        type: "array"
+        items:
+          $ref: "#/definitions/Question"
+      score:
+        type: "number"
+        format: "int"
+        minimum: 0
+        maximum: 100
+      date:
+        type: "string"
+        format: "yyyy-MM-dd’T’HH:mm:ss"
+  Question:
+    type: "object"
+    required:
+      - questionText
+      - questionScore
+    properties:
+      questionText:
+        type: "string"
+      questionScore:
+        type: "number"
+        format: "double"
+        minimum: 0
+        maximum: 1
+      category:
+        type: "string"
+  Task:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      description:
+        type: "string"
+      tags:
+        type: "array"
+        items:
+          type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
