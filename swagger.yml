@@ -185,10 +185,12 @@ definitions:
         type: "number"
         format: "int"
         minimum: 0
+        description: "Target amount of done activities in 7 days"
       score:
         type: "number"
         format: "int"
         minimum: 0
+        description: "Current amount of done activites in 7 days"
       date:
         type: "string"
         format: "yyyy-MM-dd’T’HH:mm:ss"
@@ -203,11 +205,41 @@ definitions:
         format: "double"
         minimum: 0
         maximum: 1
-      name:
-        type: "string"
+      energized:
+        type: "boolean"
       happy:
         type: "boolean"
-      energized:
+      relaxed:
+        type: "boolean"
+      proud:
+        type: "boolean"
+      optimistic:
+        type: "boolean"
+      content:
+        type: "boolean"
+      rested:
+        type: "boolean"
+      hopeful:
+        type: "boolean"
+      scared:
+        type: "boolean"
+      nervous:
+        type: "boolean"
+      dull:
+        type: "boolean"
+      bugged:
+        type: "boolean"
+      stressed:
+        type: "boolean"
+      depressed:
+        type: "boolean"
+      lonely:
+        type: "boolean"
+      sick:
+        type: "boolean"
+      overwhelmed:
+        type: "boolean"
+      tired:
         type: "boolean"
       date:
         type: "string"
